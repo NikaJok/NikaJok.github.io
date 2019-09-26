@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Map as LeafletMap, Marker, Popup, TileLayer } from 'react-leaflet';
-import axios from 'axios';
 
 const MapCard = ({ user }) => {
   const position = [user.address.geo.lat, user.address.geo.lng];
