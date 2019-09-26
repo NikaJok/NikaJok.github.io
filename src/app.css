@@ -1,0 +1,15 @@
+.head {
+  padding-top: 150px;
+  padding-bottom: 150px;
+  background: url(./bg.jpg);
+  background-size: cover;
+  background-position: center;
+  font-weight: bolder;
+}
+
+.horizontal {
+  margin: 0 auto;
+}
+.header {
+  text-align: center;
+}
