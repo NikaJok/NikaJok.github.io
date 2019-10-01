@@ -5,3 +5,11 @@ img {
   margin-top: 4rem;
   margin-bottom: 8rem;
 }
+.information {
+  min-height: 15rem;
+  max-width: 40rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

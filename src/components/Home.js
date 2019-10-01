@@ -4,6 +4,7 @@ import Header from './Header';
 import Image from './images.png';
 import { Link } from 'react-router-dom';
 import Spinner from './Spinner';
+import './users.css';
 
 export default class Home extends Component {
   state = {
@@ -54,9 +55,17 @@ export default class Home extends Component {
         <Header />
 
         <div className='row'>
-          <h5 className='center'>
-            Below are the main employees of the company
-          </h5>
+          <div className='information'>
+            <h5 className='center'>
+              Below are the main employees of the company
+            </h5>
+            <p className='center'>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis,
+              nobis. Quisquam nisi, nobis laudantium similique deserunt mollitia
+              amet corrupti soluta dolores laborum ipsum repellendus tenetur qui
+              illum excepturi sint omnis!
+            </p>
+          </div>
           {usersList}
         </div>
       </div>
