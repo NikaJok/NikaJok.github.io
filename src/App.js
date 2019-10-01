@@ -5,6 +5,7 @@ import Home from './components/Home';
 import About from './components/About';
 import Users from './components/Users';
 import Footer from './components/Footer';
+import SignUp from './components/SignUp';
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
           <Navbar />
           <Switch>
             <Route exact path='/' component={Home} />
-            <Route path='/About' component={About} />
+            <Route path='/about' component={About} />
+            <Route path='/registration' component={SignUp} />
             <Route path='/:user_id' component={Users} />
           </Switch>
         </div>

@@ -53,7 +53,6 @@ export default class Home extends Component {
     return (
       <div className='container-fluid home'>
         <Header />
-
         <div className='row'>
           <div className='information'>
             <h5 className='center'>

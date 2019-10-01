@@ -13,3 +13,9 @@ img {
   flex-direction: column;
   justify-content: center;
 }
+.regist {
+  margin-top: 4rem;
+  margin-bottom: 8rem;
+  display: flex;
+  justify-content: center;
+}
