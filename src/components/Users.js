@@ -3,26 +3,59 @@ import axios from 'axios';
 import Image from './images.png';
 import './users.css';
 import Spinner from './Spinner';
-import MapCard from './MapCard';
+//import MapCard from './MapCard';
+import EditUserForm from './EditUserForm';
+//import Popup from 'reactjs-popup';
 
 export default class Users extends Component {
   state = {
-    user: null
+    modal: true,
+    user: {
+      id: 1,
+      name: 'Leanne Graham',
+      username: 'Bret',
+      email: 'Sincere@april.biz',
+      address: {
+        street: 'Kulas Light',
+        suite: 'Apt. 556',
+        city: 'Gwenborough',
+        zipcode: '92998-3874',
+        geo: {
+          lat: '-37.3159',
+          lng: '81.1496'
+        }
+      },
+      phone: '1-770-736-8031 x56442',
+      website: 'hildegard.org',
+      company: {
+        name: 'Romaguera-Crona',
+        catchPhrase: 'Multi-layered client-server neural-net',
+        bs: 'harness real-time e-markets'
+      }
+    }
   };
-  componentDidMount() {
-    let id = this.props.match.params.user_id;
-    axios.get('http://jsonplaceholder.typicode.com/users/' + id).then(res => {
-      setTimeout(() => {
-        this.setState({
-          user: res.data
-        });
-      }, 2000);
-    });
-  }
+  // componentDidMount() {
+  //   let id = this.props.match.params.user_id;
+  //   // const upState
+  //   axios.get('http://jsonplaceholder.typicode.com/users/' + id).then(res => {
+  //     this.setState({
+  //       user: res.data
+  //     });
+  //     console.log(this.state);
+  //   });
+  //   console.log(this.state);
+  // }
+  // handleClick(e) {
+  //   this.setState({
+  //     modal: !this.state.modal
+  //   });
+  //   console.log(this.state.modal);
+  // }
   render() {
     const user = this.state.user ? (
       <div className='row'>
-        <div className='col s6'>
+        {/* {this.state.modal && } */}
+        <div className='col s3'>
           <img src={Image} />
         </div>
         <div className='col s6'>
@@ -38,6 +71,12 @@ export default class Users extends Component {
           <h6>Website: {this.state.user.website}</h6>
           <h6>Company: {this.state.user.company.name}</h6>
         </div>
+        <div className='col s6'>
+          {/* <input type='button' value='Edit' onClick={this.handleClick} /> */}
+          <button type='submit' onClick={this.handleClick}>
+            Edit
+          </button>
+        </div>
       </div>
     ) : (
       <div className='container center'>
@@ -49,13 +88,14 @@ export default class Users extends Component {
     return (
       <div className='container userDetails'>
         {user}
-        {this.state.user ? (
+        <EditUserForm />
+        {/* {this.state.user ? (
           <MapCard user={this.state.user} />
         ) : (
           <div className='center'>
             <Spinner />
           </div>
-        )}
+        )} */}
       </div>
     );
   }
