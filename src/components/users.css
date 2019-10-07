@@ -19,3 +19,11 @@ img {
   display: flex;
   justify-content: center;
 }
+.modalWindow {
+  position: absolute;
+}
+.windowEdit {
+  background: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

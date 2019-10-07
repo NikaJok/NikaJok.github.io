@@ -10,51 +10,28 @@ import EditUserForm from './EditUserForm';
 export default class Users extends Component {
   state = {
     modal: true,
-    user: {
-      id: 1,
-      name: 'Leanne Graham',
-      username: 'Bret',
-      email: 'Sincere@april.biz',
-      address: {
-        street: 'Kulas Light',
-        suite: 'Apt. 556',
-        city: 'Gwenborough',
-        zipcode: '92998-3874',
-        geo: {
-          lat: '-37.3159',
-          lng: '81.1496'
-        }
-      },
-      phone: '1-770-736-8031 x56442',
-      website: 'hildegard.org',
-      company: {
-        name: 'Romaguera-Crona',
-        catchPhrase: 'Multi-layered client-server neural-net',
-        bs: 'harness real-time e-markets'
-      }
-    }
+    user: null
   };
-  // componentDidMount() {
-  //   let id = this.props.match.params.user_id;
-  //   // const upState
-  //   axios.get('http://jsonplaceholder.typicode.com/users/' + id).then(res => {
-  //     this.setState({
-  //       user: res.data
-  //     });
-  //     console.log(this.state);
-  //   });
-  //   console.log(this.state);
-  // }
-  // handleClick(e) {
-  //   this.setState({
-  //     modal: !this.state.modal
-  //   });
-  //   console.log(this.state.modal);
-  // }
+  componentDidMount() {
+    let id = this.props.match.params.user_id;
+    // const upState
+    axios.get('http://jsonplaceholder.typicode.com/users/' + id).then(res => {
+      this.setState({
+        user: res.data
+      });
+      console.log(this.state);
+    });
+    console.log(this.state);
+  }
+  handleClick = e => {
+    this.setState({
+      modal: !this.state.modal
+    });
+    console.log(this.state.modal);
+  };
   render() {
     const user = this.state.user ? (
       <div className='row'>
-        {/* {this.state.modal && } */}
         <div className='col s3'>
           <img src={Image} />
         </div>
@@ -71,12 +48,7 @@ export default class Users extends Component {
           <h6>Website: {this.state.user.website}</h6>
           <h6>Company: {this.state.user.company.name}</h6>
         </div>
-        <div className='col s6'>
-          {/* <input type='button' value='Edit' onClick={this.handleClick} /> */}
-          <button type='submit' onClick={this.handleClick}>
-            Edit
-          </button>
-        </div>
+        <div className='col s6'></div>
       </div>
     ) : (
       <div className='container center'>
@@ -87,15 +59,14 @@ export default class Users extends Component {
     );
     return (
       <div className='container userDetails'>
+        <div className='modalWindow'>
+          {this.state.modal && <EditUserForm handleClick={this.handleClick} />}
+        </div>
         {user}
-        <EditUserForm />
-        {/* {this.state.user ? (
-          <MapCard user={this.state.user} />
-        ) : (
-          <div className='center'>
-            <Spinner />
-          </div>
-        )} */}
+        <button type='submit' onClick={this.handleClick}>
+          Edit
+        </button>
+        {/* <MapCard user={this.state.user} /> */}
       </div>
     );
   }

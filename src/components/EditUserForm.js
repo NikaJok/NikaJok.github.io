@@ -77,10 +77,11 @@ class EditUserForm extends Component {
       website,
       company
     } = this.state.user;
+
     const { street, suite, city } = address;
     const user = this.state.user ? (
-      <div className='row'>
-        <div className='col s3'>
+      <div className='row z-depth-4 windowEdit'>
+        <div className='col s4'>
           <img src={Image} />
         </div>
         <div className='col s6'>
@@ -155,6 +156,7 @@ class EditUserForm extends Component {
               value={company.name}
               onChange={this.onChange}
             />
+            <button onClick={this.props.handleClick}>Submit</button>
           </form>
         </div>
       </div>
@@ -168,13 +170,13 @@ class EditUserForm extends Component {
     return (
       <div className='container userDetails'>
         {user}
-        {this.state.user ? (
+        {/* {this.state.user ? (
           <MapCard user={this.state.user} />
         ) : (
           <div className='center'>
             <Spinner />
           </div>
-        )}
+        )} */}
       </div>
     );
   }
